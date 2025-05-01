@@ -1,7 +1,7 @@
-Multi Agentic Forecasting
+# Multi Agentic Forecasting
 Title:
-Self-Improving Forecasting System using Prophet and CrewAI with Agentic Battle Loop
-1. Introduction
+# Self-Improving Forecasting System using Prophet and CrewAI with Agentic Battle Loop
+# 1. Introduction
 Forecasting is the process of predicting future outcomes based on historical data patterns. In real-world scenarios, such as stock markets, weather forecasting, and sales predictions, accurate forecasting is crucial.
 Facebook Prophet is a powerful forecasting model designed to handle time-series data efficiently. It is particularly effective for datasets with:
 - Strong seasonal effects
@@ -11,7 +11,7 @@ However, no single forecast is perfect on the first attempt. Hence, building a s
 In this project:
 - Agents fight, argue, and retry to reach the best forecast without human intervention.
 - The system self-corrects based on evaluation feedback dynamically.
-2. Problem Statement
+# 2. Problem Statement
 Goal:
 Design a multi-agent system where:
 - A Forecasting Agent generates a forecast using Prophet.
@@ -19,20 +19,20 @@ Design a multi-agent system where:
 - If evaluation is poor, the Forecasting Agent re-forecasts (changing model parameters and retrying).
 - A supervising Orchestrator Agent ensures the loop continues until success or maximum attempts are reached.
 This ensures that the forecasting output is of high quality without manual tuning.
-3. System Architecture
+# 3. System Architecture
 Dataset (CSV) --> Forecasting Agent --> Evaluation Agent --> (Feedback Loop) --> Forecasting Agent (retry if needed) --> Final Output
 Components:
 - Forecasting Agent: Trains Prophet model, forecasts future data.
 - Evaluation Agent: Calculates MAE, RMSE, criticizes if performance is poor.
 - Orchestration Agent: Monitors the battle between agents, controls retry logic.
-4. Tools & Technologies Used
+# 4. Tools & Technologies Used
 Python 3: Programming Language
 CrewAI: Build and orchestrate autonomous agents
 Prophet: Time-series forecasting
 scikit-learn: Evaluation metrics (MAE, RMSE)
 Pandas: Data loading and preprocessing
 Matplotlib (optional): Visualize forecasts
-5. Step-by-Step Explanation
+# 5. Step-by-Step Explanation
 5.1 Setting up Tools (forecasting_tools.py): Includes loading, preprocessing, training Prophet, 
 Summary:
 •	Load dataset
@@ -65,13 +65,13 @@ def create_evaluation_task():
 
 5.4 Battle Loop: Implements self-improving feedback loop by retrying failed forecasts.
 
-6. Folder Structure
+# 6. Folder Structure
 forecasting_project/
 ├── tools/
 │   └── forecasting_tools.py
 ├── main.py
 └── Forecast.csv
-7. Output Demonstration (Sample Run)
+# 7. Output Demonstration (Sample Run)
 Sample output includes logs where agents fight and retry:
 🛡️ Starting Attempt 1
 ❌ Evaluation Agent rejected the forecast. Retrying...
@@ -80,14 +80,14 @@ Notice:
 •	The agents literally "fight" (Evaluation criticizes).
 •	Forecasting agent "thinks" and retrains automatically.
 •	If Evaluation accepts, the battle ends!
-8. Observations
+# 8. Observations
 - Behavior: Agents learn to improve predictions by adjusting hyperparameters.
 - Fighting spirit: Evaluation Agent is strict.
 - Agentic thinking: No manual intervention.
 
-9. Conclusion
+# 9. Conclusion
 In this project, we built a multi-agent system capable of forecasting, self-evaluation, self-correction, and high-quality output. Using CrewAI, Prophet, and feedback loops, the system behaves like real AI teammates.
-10. References
+# 10. References
 - GeeksForGeeks Prophet Tutorial
 - CrewAI Official Documentation
 - Prophet Official GitHub
